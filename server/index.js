@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 
 const db = require('../database/index');
 
-app.use(express.static(__dirname + '/../client/'));
+app.use(express.static(__dirname + '/../client/dist/'));
 app.use(bodyParser.text());
 
 app.get('/similarHomes', (req, res) => {

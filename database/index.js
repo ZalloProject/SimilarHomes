@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fetcher');
+mongoose.connect('mongodb://localhost/fetcher', { useNewUrlParser: true });
 const data = require('./sampleData.js');
 
 let similarHomesSchema = mongoose.Schema({
