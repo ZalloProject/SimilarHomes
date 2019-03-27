@@ -5,10 +5,14 @@ const bodyParser = require('body-parser');
 const db = require('../database/index');
 
 app.use(express.static(__dirname + '/../client/dist/'));
-app.use(bodyParser.text());
+app.use(bodyParser.json());
 
-app.get('/similarHomes', (req, res) => {
+app.post('/similarHomes', (req, res) => {
+  //db
+  //return results from db
+  db.getSimilarHomes(req.body, (err, data) => {
 
+  });    
 });
 
 

@@ -24,6 +24,12 @@ let similarHomesSchema = mongoose.Schema({
 
 let SimilarHome = mongoose.model('SimilarHome', similarHomesSchema);
 
+const getSimilarHomes = (home, cb) => {
+  SimilarHome.find({ zip: home.zip}, null, {sort: {price: 1}}, (err, docs) =>{
+    console.log(docs);
+  });
+};
+
 
 //One time use function to get data into db.
 let insertSampleData = () => {
@@ -61,4 +67,5 @@ let insertSampleData = () => {
 
 };
 
+module.exports.getSimilarHomes = getSimilarHomes;
 module.exports.insertSampleData = insertSampleData;
