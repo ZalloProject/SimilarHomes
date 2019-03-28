@@ -13,7 +13,4 @@ app.post('/similarHomes', (req, res) => {
   });    
 });
 
-
-let port = 3000;
-
-app.listen(port);
+module.exports = app;
