@@ -13,10 +13,10 @@ const createHomeSlide = (homes, index) => {
   };
 
   return (<div className="similar-home-slide" style={styles}>
-    <span>{homes[index].createdAt}</span>
-    <span>For {homes[index].listingType}</span>
-    <span>{homes[index].price}</span><span> {homes[index].beds}·{homes[index].baths}·{homes[index].size}</span>
-    <span>{homes[index].address}, {homes[index].city}, {homes[index].state}, {homes[index].zip}</span>
+    <span>{homes[index].createdAt} on Zallo</span>
+    <span>FOR {homes[index].listingType}</span>
+    <span>${homes[index].price}</span><span> {homes[index].beds} bds · {homes[index].baths} ba ·{homes[index].size} ...</span>
+    <span>{homes[index].address}, {homes[index].city}, {homes[index].state} {homes[index].zip}</span>
   </div>);
 };
 
@@ -26,7 +26,7 @@ const SimilarHomeSlide = ({homeData, index}) => {
   if (homeData.length === 1) {
     return (createHomeSlide(homeData, 0));
   } else {
-    return (<div>
+    return (<div className="similar-homes-slides-container">
       {createHomeSlide(homeData, index)} 
       {createHomeSlide(homeData, index + 1)} 
     </div>);

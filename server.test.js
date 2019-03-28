@@ -1,5 +1,12 @@
 const request = require('supertest');
 const app = require('./server/index');
+const testDB = require('./database/testDB');
+
+// beforeAll(() => {
+//   testDB.deleteAll(() => {
+//     testDB.insertSampleData();
+//   });
+// });
 
 describe('Testing server response', () => {
 
@@ -18,20 +25,16 @@ describe('Testing server response', () => {
 
   test('It should respond to a POST request with an array', () => {
     return request(app)
-      .post('/similarHomes')
+      .post('/test')
       .send(testHome)
       .set('Accept', 'application/json')
-      .expect('Content-Type', /json/)
-      .expect(200)
-      .expect((res) => {
-        Array.isArray(res.body);
-
-      })
-      .end((err, res) => {
-        if (err) {
-          return done(err);
-        }  
-        done();
+      .expect(res => {
+        if (!Array.isArray(res.body)) {
+          throw new Error('response is not an array');
+        }
+        if (res.body[0].zip !== '85225') {
+          throw new Error('response contains house with a different zip code');
+        }
       });
   });
 });

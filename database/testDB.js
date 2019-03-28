@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fetcher', { useNewUrlParser: true });
 const data = require('./sampleData.js');
 
-let similarHomesSchema = mongoose.Schema({
+let testSchema = mongoose.Schema({
   address: {
     type: String,
     index: {
@@ -22,10 +22,10 @@ let similarHomesSchema = mongoose.Schema({
   pictureURL: String
 });
 
-let SimilarHome = mongoose.model('SimilarHome', similarHomesSchema);
+let Test = mongoose.model('Test', testSchema);
 
 const getSimilarHomes = (home, cb) => {
-  SimilarHome.find({ zip: home.zip}, null, {sort: {price: 1}}, (err, docs) => {
+  Test.find({ zip: home.zip}, null, {sort: {price: 1}}, (err, docs) => {
     if (docs.length <= 3) {
       cb(null, docs);
     } else {
@@ -40,36 +40,36 @@ const getSimilarHomes = (home, cb) => {
 //One time use function to get data into db.
 let insertSampleData = () => {
 
-  // const houses = [];
+  const houses = [];
 
-  // for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 100; i++) {
 
-  //   let url;
-  //   if (i < 9) {
-  //     url = `00${i + 1}.jpg`;
-  //   } else if (i < 99) {
-  //     url = `0${i + 1}.jpg`;
-  //   } else {
-  //     url = '100.jpg';
-  //   }
+    let url;
+    if (i < 9) {
+      url = `00${i + 1}.jpg`;
+    } else if (i < 99) {
+      url = `0${i + 1}.jpg`;
+    } else {
+      url = '100.jpg';
+    }
 
-  //   let rand = Math.floor(Math.random() * 20);
-  //   let house = {
-  //     address: data.address[rand],
-  //     city: data.city[rand],
-  //     zip: data.zip[rand],
-  //     state: data.state,
-  //     price: data.price[rand],
-  //     beds: data.beds[rand],
-  //     baths: data.baths[rand],
-  //     size: data.size[rand],
-  //     listingType: 'Sale',
-  //     pictureURL: data.pictureURL + url
-  //   };
-  //   houses.push(house);
+    let rand = Math.floor(Math.random() * 20);
+    let house = {
+      address: data.address[rand],
+      city: data.city[rand],
+      zip: data.zip[rand],
+      state: data.state,
+      price: data.price[rand],
+      beds: data.beds[rand],
+      baths: data.baths[rand],
+      size: data.size[rand],
+      listingType: 'Sale',
+      pictureURL: data.pictureURL + url
+    };
+    houses.push(house);
     
-  // }
-  // SimilarHome.insertMany(houses, (err) => console.log('done'));
+  }
+  Test.insertMany(houses, (err) => console.log('done'));
 
   // let house = new SimilarHome ({
   //   address: '883 E Constitution Dr.',
@@ -91,5 +91,12 @@ let insertSampleData = () => {
 
 };
 
+const deleteAll = (cb) => {
+  Test.deleteMany({}, () => {
+    cb();
+  });
+};
+
+module.exports.deleteAll = deleteAll;
 module.exports.getSimilarHomes = getSimilarHomes;
 module.exports.insertSampleData = insertSampleData;
