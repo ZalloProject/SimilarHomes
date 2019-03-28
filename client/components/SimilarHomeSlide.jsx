@@ -26,7 +26,10 @@ const SimilarHomeSlide = ({homeData, index}) => {
   if (homeData.length === 1) {
     return (createHomeSlide(homeData, 0));
   } else {
-    return <div>{createHomeSlide(homeData, index)} {createHomeSlide(homeData, index + 1)} </div>
+    return (<div>
+      {createHomeSlide(homeData, index)} 
+      {createHomeSlide(homeData, index + 1)} 
+    </div>);
   }
 };
 

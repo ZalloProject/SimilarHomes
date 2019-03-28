@@ -8,6 +8,7 @@ const Arrow = ({direction, clickFunction, icon}) => {
       onClick={ clickFunction }>
       { icon }
     </div>
-  )};
+  );
+};
 
 export default Arrow;

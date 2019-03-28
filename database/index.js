@@ -25,11 +25,13 @@ let similarHomesSchema = mongoose.Schema({
 let SimilarHome = mongoose.model('SimilarHome', similarHomesSchema);
 
 const getSimilarHomes = (home, cb) => {
-  SimilarHome.find({ zip: home.zip}, null, {sort: {price: 1}}, (err, docs) =>{
+  SimilarHome.find({ zip: home.zip}, null, {sort: {price: 1}}, (err, docs) => {
     if (docs.length <= 3) {
       cb(docs);
     } else {
-      cb(null, docs.filter(doc => (doc.price >= home.price * 0.8 && doc.price <= home.price * 1.2)));
+      cb(null, docs.filter(doc => (
+        doc.price >= home.price * 0.8 && doc.price <= home.price * 1.2
+      )));
     }
   });
 };
