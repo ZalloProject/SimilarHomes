@@ -29,7 +29,12 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.getHomes(this.state.currentHome)
-      .then((response) => response.json())
+      .then((response) => {
+        if (typeof response === 'object') {
+          return response;
+        }
+        return response.json();
+      })
       .then((myJson) => (this.setState({
         homesData: myJson
       })));

@@ -4,5 +4,8 @@ module.exports = {
   rootDir: './../',
   testMatch: [
     '<rootDir>/client/client.test.js'
+  ],
+  setupFilesAfterEnv: [
+    '<rootDir>setupTests.js'
   ]
 };
