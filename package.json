@@ -9,7 +9,7 @@
   "scripts": {
     "server-dev": "nodemon server/server.js",
     "react-dev": "webpack -d --watch",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "babel-jest": "^24.5.0",
@@ -63,6 +63,9 @@
       "json",
       "jsx"
     ],
-    "coveragePathIgnorePatterns": ["<rootDir>/server/"]
+    "projects": [
+      "<rootDir>/client/jest.config.js",
+      "<rootDir>/server/jest.config.js"
+    ]
   }
 }
