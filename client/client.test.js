@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
-import App from './client/components/App.jsx';
-import Arrow from './client/components/Arrow.jsx';
-import SimilarHomeSlide from './client/components/SimilarHomeSlide.jsx';
+import App from './components/App.jsx';
+import Arrow from './components/Arrow.jsx';
+import SimilarHomeSlide from './components/SimilarHomeSlide.jsx';
 
 const home1 = {
   address: '883 E Constitution Dr.',

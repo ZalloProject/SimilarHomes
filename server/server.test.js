@@ -1,6 +1,6 @@
 const request = require('supertest');
-const app = require('./server/index');
-const testDB = require('./database/testDB');
+const app = require('./index');
+const testDB = require('../database/testDB');
 
 // beforeAll(() => {
 //   testDB.deleteAll(() => {
