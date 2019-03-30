@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/style', (req,res) => {
-  res.sendFile(path.join(__dirname + '/../client/dist/style.css'));
+  res.sendFile(path.join(__dirname + '/../client/style.css'));
 })
 
 app.post('/similarHomes', (req, res) => {
