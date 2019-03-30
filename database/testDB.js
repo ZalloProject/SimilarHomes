@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const password = require('./atlasPassword.js');
+// const password = require('./atlasPassword.js');
 mongoose.connect(`mongodb+srv://zalloSimHomes:zalloPass@zallocluster0-89hrd.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true });
 const data = require('./sampleData.js');
 
