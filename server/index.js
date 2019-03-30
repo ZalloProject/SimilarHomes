@@ -1,17 +1,30 @@
 const express = require('express');
 let app = express();
 const bodyParser = require('body-parser');
+const path = require('path')
 
-// const db = require('../database/index');
+const db = require('../database/index');
 const testDB = require('../database/testDB');
 
-app.use(express.static(__dirname + '/../client/dist/'));
+const cors = require('cors');
+
+app.use(cors());
+
+// app.use(express.static(__dirname + '/../client/'));
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../client/dist/bundle.js'));
+})
+
+app.get('/style', (req,res) => {
+  res.sendFile(path.join(__dirname + '/../client/dist/style.css'));
+})
 
 app.post('/similarHomes', (req, res) => {
   db.getSimilarHomes(req.body, (err, data) => {
     res.send(data);
-  });    
+  });
 });
 
 app.post('/test', (req, res) => {
@@ -21,4 +34,3 @@ app.post('/test', (req, res) => {
 });
 
 module.exports = app;
-

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 
 const getHomes = (currentHome) => {
-  return fetch('/similarHomes', {
+  return fetch('http://localhost:3004/similarHomes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -13,4 +13,4 @@ const getHomes = (currentHome) => {
   });
 };
 
-ReactDOM.render(<App getHomes={getHomes}/>, document.getElementById('app'));
+ReactDOM.render(<App getHomes={getHomes}/>, document.getElementById('similar-homes'));
