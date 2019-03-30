@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // const password = require('./atlasPassword.js');
-mongoose.connect(`mongodb+srv://zalloSimHomes:zalloPass@zallocluster0-89hrd.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://zalloSimHomes:zalloPass@zallocluster0-89hrd.mongodb.net/test?retryWrites=true', { useNewUrlParser: true });
 const data = require('./sampleData.js');
 
 
@@ -73,25 +73,6 @@ let insertSampleData = () => {
     
   }
   Test.insertMany(houses, (err) => console.log('done'));
-
-  // let house = new SimilarHome ({
-  //   address: '883 E Constitution Dr.',
-  //   city: 'Chandler',
-  //   zip: '85225',
-  //   state: 'AZ',
-  //   price: 320000,
-  //   beds: 5,
-  //   baths: 3,
-  //   listingType: 'Sale',
-  //   createdAt: '2019-03-27T02:59:14.416+00:00',
-  //   pictureURL: 'https://s3-us-west-1.amazonaws.com/zallosimilarhomes/101.jpg'
-  // });
-
-
-  // house.save((err, results) => {
-  //   console.log('inserted');
-  // });
-
 };
 
 const deleteAll = (cb) => {
