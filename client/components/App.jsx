@@ -17,6 +17,7 @@ class App extends React.Component {
         price: 320000,
         beds: 5,
         baths: 3,
+        size: 2845,
         listingType: 'Sale',
         createdAt: '2019-03-27T02:59:14.416+00:00',
         pictureURL: 'https://s3-us-west-1.amazonaws.com/zallosimilarhomes/099.jpg'
@@ -29,12 +30,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.getHomes(this.state.currentHome)
-      .then((response) => {
-        if (typeof response === 'object') {
-          return response;
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((myJson) => (this.setState({
         homesData: myJson
       })));
@@ -58,23 +54,29 @@ class App extends React.Component {
 
   render() {
 
-    return (<div className="similar-homes-carousel">
-      <Arrow
-        direction='left'
-        clickFunction={ this.previousHouse }
-        icon='<' 
-      />
-      {this.state.homesData.length === 0 
-        ? <SimilarHomeSlide homeData={[this.state.currentHome]}
-          index={0}/>
-        : <SimilarHomeSlide homeData={this.state.homesData}
-          index={this.state.currentIndex}/>
-      }
-      <Arrow
-        direction="right"
-        clickFunction={ this.nextHouse }
-        icon='>' />
-    </div>);
+    return (
+      <div className='similar-homes-container'>
+        <h1 className="similar-homes-header">Similar Homes For Sale</h1>
+        <div className="similar-homes-carousel">
+          <Arrow
+            direction='left'
+            clickFunction={ this.previousHouse }
+            clickable={this.state.currentIndex > 0} 
+          />
+          {this.state.homesData.length === 0 
+            ? <SimilarHomeSlide homeData={[this.state.currentHome]}
+              index={0}/>
+            : <SimilarHomeSlide homeData={this.state.homesData}
+              index={this.state.currentIndex}/>
+          }
+          <Arrow
+            direction="right"
+            clickFunction={ this.nextHouse }
+            clickable={this.state.currentIndex < this.state.homesData.length - 2} />
+        </div>
+        <button className='similar-homes-see-all'>See all similar listings</button>
+      </div>
+    );
   }
 }
 

@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fetcher', { useNewUrlParser: true });
+const password = require('./atlasPassword.js');
+mongoose.connect(`mongodb+srv://zalloSimHomes:${password}@zallocluster0-89hrd.mongodb.net/test?retryWrites=true`, { useNewUrlParser: true });
 const data = require('./sampleData.js');
+
+
 
 let testSchema = mongoose.Schema({
   address: {

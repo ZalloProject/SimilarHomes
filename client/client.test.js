@@ -13,6 +13,7 @@ const home1 = {
   price: 320000,
   beds: 5,
   baths: 3,
+  size: 2850,
   listingType: 'Sale',
   createdAt: '2019-03-27T02:59:14.416+00:00',
   pictureURL: 'https://s3-us-west-1.amazonaws.com/zallosimilarhomes/099.jpg'
@@ -26,6 +27,7 @@ const home2 = {
   price: 280000,
   beds: 4,
   baths: 3,
+  size: 2650,
   listingType: 'Sale',
   createdAt: '2019-03-24T02:59:14.416+00:00',
   pictureURL: 'https://s3-us-west-1.amazonaws.com/zallosimilarhomes/100.jpg'
@@ -39,6 +41,7 @@ const home3 = {
   price: 275000,
   beds: 3,
   baths: 2,
+  size: 1900,
   listingType: 'Sale',
   createdAt: '2019-02-24T02:59:14.416+00:00',
   pictureURL: 'https://s3-us-west-1.amazonaws.com/zallosimilarhomes/050.jpg'
@@ -48,22 +51,14 @@ const getHomes = () => {
   return new Promise((resolve, reject) => resolve([home1, home2, home3]));
 };
 
-// const next = (wrapper) => {
-//   wrapper.setState({currentIndex: 1});
-// };
-
-// const previous = (wrapper) => {
-//   wrapper.setState({currentIndex: 0});
-// };
-
 describe('Main Similar Homes Component', () => {
 
-  it('should be selectable by class "similar-homes-carousel"', () => {
-    expect(shallow(<App getHomes={getHomes}/>).is('.similar-homes-carousel')).toBe(true);
+  it('should be selectable by class "similar-homes-container"', () => {
+    expect(shallow(<App getHomes={getHomes}/>).is('.similar-homes-container')).toBe(true);
   });
 
   it('should mount in a full DOM', () => {
-    expect(mount(<App getHomes={getHomes}/>).find('.similar-homes-carousel').length).toBe(1);
+    expect(mount(<App getHomes={getHomes}/>).find('.similar-homes-container').length).toBe(1);
   });
 
   describe('State CurrentIndex changing functions', () => {
@@ -83,36 +78,28 @@ describe('Main Similar Homes Component', () => {
 
 describe('Arrow Component', () => {
 
-  it('should be selectable by class "slide-arrow left"', () => {
-    expect(shallow(<Arrow direction='left' icon='<' />).is('.slide-arrow')).toBe(true);
+  it('should be selectable by class "sim-homes-slide-arrow"', () => {
+    expect(shallow(<Arrow direction='left' clickable={true} />).is('.sim-homes-slide-arrow')).toBe(true);
   });
   
   it('should mount in a full DOM', () => {
-    expect(mount(<Arrow direction='left' icon='<'/>).find('.left').length).toBe(1);
+    expect(mount(<Arrow direction='left' clickable={true}/>).find('.left').length).toBe(1);
   });
   
-  it('should render to static HTML', () => {
-    expect(render(<Arrow direction='left' icon='<'/>).text()).toEqual('<');
-  });
-
-  it('should be selectable by class "slide-arrow right"', () => {
-    expect(shallow(<Arrow direction='right' icon='>' />).is('.slide-arrow')).toBe(true);
+  it('should be selectable by class "sim-homes-slide-arrow"', () => {
+    expect(shallow(<Arrow direction='right' clickable={true} />).is('.sim-homes-slide-arrow')).toBe(true);
   });
   
   it('should mount in a full DOM', () => {
-    expect(mount(<Arrow direction='right' icon='>'/>).find('.right').length).toBe(1);
-  });
-
-  it('should render to static HTML', () => {
-    expect(render(<Arrow direction='right' icon='>'/>).text()).toEqual('>');
+    expect(mount(<Arrow direction='right' clickable={true}/>).find('.right').length).toBe(1);
   });
 
   it('should change the state when clicked', () => {
     const outerWrap = shallow(<App getHomes={getHomes}/>);
     outerWrap.setState({'homesData': [home1, home2, home3]});
     const instanceOuterWrap = outerWrap.instance();
-    const innerWrap1 = shallow(<Arrow direction='left' clickFunction={instanceOuterWrap.previousHouse} icon='<'/>);
-    const innerWrap2 = shallow(<Arrow direction='right' clickFunction={instanceOuterWrap.nextHouse} icon='>'/>);
+    const innerWrap1 = shallow(<Arrow direction='left' clickFunction={instanceOuterWrap.previousHouse} clickable={true}/>);
+    const innerWrap2 = shallow(<Arrow direction='right' clickFunction={instanceOuterWrap.nextHouse} clickable={true}/>);
     innerWrap2.find('.right').simulate('click');
     expect(outerWrap.state('currentIndex')).toEqual(1);
     innerWrap1.find('.left').simulate('click');
