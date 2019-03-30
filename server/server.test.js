@@ -18,6 +18,7 @@ describe('Testing server response', () => {
     price: 320000,
     beds: 5,
     baths: 3,
+    size: 2875,
     listingType: 'Sale',
     createdAt: '2019-03-27T02:59:14.416+00:00',
     pictureURL: 'https://s3-us-west-1.amazonaws.com/zallosimilarhomes/099.jpg'
