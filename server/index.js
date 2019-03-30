@@ -2,7 +2,7 @@ const express = require('express');
 let app = express();
 const bodyParser = require('body-parser');
 
-const db = require('../database/index');
+// const db = require('../database/index');
 const testDB = require('../database/testDB');
 
 app.use(express.static(__dirname + '/../client/dist/'));
