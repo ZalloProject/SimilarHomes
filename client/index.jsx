@@ -1,18 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class App extends React.Component {
+import App from './components/App.jsx';
 
-  constructor(props) {
-    super(props);
-    this.state = {
+const getHomes = (currentHome) => {
+  return fetch('/similarHomes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(currentHome)
+  });
+};
 
-    };
-  }
-
-  render() {
-    return (<div>Hello</div>);
-  }
-}
-
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App getHomes={getHomes}/>, document.getElementById('app'));

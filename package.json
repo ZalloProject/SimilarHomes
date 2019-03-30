@@ -7,10 +7,13 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "server-dev": "nodemon server/index.js",
-    "react-dev": "webpack -d --watch"
+    "server-dev": "nodemon server/server.js",
+    "react-dev": "webpack -d --watch",
+    "test": "jest --coverage"
   },
   "dependencies": {
+    "babel-jest": "^24.5.0",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongoose": "^5.4.20",
     "nodemon": "^1.18.10",
@@ -22,9 +25,22 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
-    "eslint": "^5.15.3",
+    "babel-preset-airbnb": "^3.2.1",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "jest": "^24.5.0",
+    "jest-cli": "^24.5.0",
     "prettier": "1.16.4",
+    "react-addons-test-utils": "^15.6.2",
+    "superagent": "^4.1.0",
+    "supertest": "^4.0.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   },
@@ -37,5 +53,16 @@
   "bugs": {
     "url": "https://github.com/ZalloProject/SimilarHomes/issues"
   },
-  "homepage": "https://github.com/ZalloProject/SimilarHomes#readme"
+  "homepage": "https://github.com/ZalloProject/SimilarHomes#readme",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ],
+    "projects": [
+      "<rootDir>/client/jest.config.js",
+      "<rootDir>/server/jest.config.js"
+    ]
+  }
 }
