@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../style.css';
 
 const Arrow = ({direction, clickFunction, clickable}) => {
 
@@ -7,13 +8,13 @@ const Arrow = ({direction, clickFunction, clickable}) => {
     : 'https://s3-us-west-1.amazonaws.com/zallosimilarhomes/right-arrow.png';
 
   let arrowClass = clickable
-    ? 'sim-homes-arrow-on'
-    : 'sim-homes-arrow-off';
+    ? 'simHomesArrowOn'
+    : 'simHomesArrowOff';
 
   return (
-    <div className={`sim-homes-slide-arrow ${direction} ${arrowClass}`}
+    <div className={[style.simHomesSlideArrow, style[direction], style[arrowClass]].join(' ')}
       onClick={clickFunction}>
-      <img className={'sim-homes-arrow-image'} src={src}/>
+      <img className={style.simHomesArrowImage} src={src}/>
     </div>
   );
 };

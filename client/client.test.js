@@ -78,16 +78,16 @@ describe('Main Similar Homes Component', () => {
 
 describe('Arrow Component', () => {
 
-  it('should be selectable by class "sim-homes-slide-arrow"', () => {
-    expect(shallow(<Arrow direction='left' clickable={true} />).is('.sim-homes-slide-arrow')).toBe(true);
+  it('should be selectable by class "simHomesSlideArrow"', () => {
+    expect(shallow(<Arrow direction='left' clickable={true} />).is('.simHomesSlideArrow')).toBe(true);
   });
   
   it('should mount in a full DOM', () => {
     expect(mount(<Arrow direction='left' clickable={true}/>).find('.left').length).toBe(1);
   });
   
-  it('should be selectable by class "sim-homes-slide-arrow"', () => {
-    expect(shallow(<Arrow direction='right' clickable={true} />).is('.sim-homes-slide-arrow')).toBe(true);
+  it('should be selectable by class "simHomesSlideArrow"', () => {
+    expect(shallow(<Arrow direction='right' clickable={true} />).is('.simHomesSlideArrow')).toBe(true);
   });
   
   it('should mount in a full DOM', () => {
@@ -110,12 +110,12 @@ describe('Arrow Component', () => {
 
 describe('Slide Component', () => {
 
-  it('should be selectable by class "similar-home-slide"', () => {
-    expect(shallow(<SimilarHomeSlide homeData={[home1, home2]} index={0}/>).is('.similar-homes-slides-container')).toBe(true);
+  it('should be selectable by class "similarHomeSslide"', () => {
+    expect(shallow(<SimilarHomeSlide homeData={[home1, home2]} index={0}/>).is('.similarHomesSlidesContainer')).toBe(true);
   });
   
   it('should mount in a full DOM', () => {
-    expect(mount(<SimilarHomeSlide homeData={[home1, home2]} index={0}/>).find('.similar-home-slide').length).toBe(2);
+    expect(mount(<SimilarHomeSlide homeData={[home1, home2]} index={0}/>).find('.similarHomeSlide').length).toBe(2);
   });
   
 });

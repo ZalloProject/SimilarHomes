@@ -1,15 +1,15 @@
-.similar-homes-carousel {
+.similarHomesCarousel {
     display: flex;
 }
 
-.similar-homes-slides-container {
+.similarHomesSlidesContainer {
     display: flex;
     color: #fff;
     font-family: "Open Sans",Gotham,gotham,Tahoma,Geneva,sans-serif;
     text-shadow: 0 0 3px rgba(0,0,0,.5);
 }
 
-.similar-homes-header {
+.similarHomesHeader {
     margin-left: 15px;
     font-size: 20px;
     line-height: 1.3;
@@ -17,7 +17,7 @@
     font-family: "Open Sans",Gotham,gotham,Tahoma,Geneva,sans-serif;
 }
 
-.sim-homes-slide-arrow {
+.simHomesSlideArrow {
     font-size: 40px;
     color: #ccc;
     align-self: center;
@@ -25,27 +25,31 @@
     margin-right: 10px;
 }
 
-.sim-homes-arrow-image {
+.simHomesArrowImage {
     width: 30px;
     height: 30px;
 }
 
-.sim-homes-arrow-on {
+.simHomesArrowOn {
     opacity: 1;
 }
 
-.sim-homes-arrow-off {
+.simHomesArrowOn:hover {
+    cursor: pointer;
+}
+
+.simHomesArrowOff {
     opacity: 0.3;
 }
 
-.sim-homes-heart {
+.simHomesHeart {
     display: flex;
     margin-left: 165px;
     width: 35px;
     height: 30px;
 }
 
-.similar-home-slide {
+.similarHomeSlide {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -53,17 +57,21 @@
     margin-right: 2px;
 }
 
-.sim-homes-days {
+.similarHomeSlide:hover {
+    cursor: pointer;
+}
+
+.simHomesDays {
     display: flex;
     margin: 10px 5px 60px 10px;
     font-size: 14px;
 }
 
-.sim-homes-line2 {
+.simHomesLine2 {
     display: flex;
 }
 
-.sim-homes-dot {
+.simHomesDot {
     border: 2px solid white;
     height: 9px;
     width: 9px;
@@ -74,41 +82,41 @@
     margin-top: 2px;
 }
 
-.sim-homes-listing-type {
+.simHomesListingType {
     display: flex;
     margin-left: 5px;
     font-size: 14px;
 }
 
-.sim-homes-line3 {
+.simHomesLine3 {
     display: flex;
 }
 
-.sim-homes-price {
+.simHomesPrice {
     display: flex;
     margin-left: 10px;
     font-size: 28px;
 }
 
-.sim-homes-details {
+.simHomesDetails {
     display: flex;
     margin-left: 10px;
     margin-top: 12px;
     font-size: 16px;
 }
 
-.sim-homes-address {
+.simHomesAddress {
     display: flex;
     margin-left: 10px;
     font-size: 14px;
     margin-bottom: 5px;
-    color: #ccc;
+    color: #e1e2e1;
 }
 
-.similar-homes-see-all {
+.similarHomesSeeAll {
     margin: 10px;
     border: 1px solid transparent;
-    /* font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif; */
+    font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
     border-color: #006AFF;
     color: #006aFF;
     border-radius: 5px;
@@ -121,7 +129,8 @@
     margin-left: 285px;
 }
 
-.similar-homes-see-all:hover {
+.similarHomesSeeAll:hover {
     color: #fff;
     background-color: #006aFF;
+    cursor: pointer;
 }

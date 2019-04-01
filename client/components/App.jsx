@@ -2,6 +2,7 @@ import React from 'react';
 
 import Arrow from './Arrow.jsx';
 import SimilarHomeSlide from './SimilarHomeSlide.jsx';
+import style from '../style.css';
 
 class App extends React.Component {
 
@@ -56,8 +57,8 @@ class App extends React.Component {
 
     return (
       <div className='similar-homes-container'>
-        <h1 className="similar-homes-header">Similar Homes For Sale</h1>
-        <div className="similar-homes-carousel">
+        <h1 className={style.similarhomesheader}>Similar Homes For Sale</h1>
+        <div className={style.similarHomesCarousel}>
           <Arrow
             direction='left'
             clickFunction={ this.previousHouse }
@@ -74,7 +75,7 @@ class App extends React.Component {
             clickFunction={ this.nextHouse }
             clickable={this.state.currentIndex < this.state.homesData.length - 2} />
         </div>
-        <button className='similar-homes-see-all'>See all similar listings</button>
+        <button className={style.similarHomesSeeAll}>See all similar listings</button>
       </div>
     );
   }
