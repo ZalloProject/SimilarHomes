@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 
 const getHomes = (currentHome) => {
-  return fetch('http://localhost:3004/similarHomes', {
+  return fetch('/similarHomes', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
