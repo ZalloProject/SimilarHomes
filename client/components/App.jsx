@@ -34,7 +34,8 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((myJson) => (this.setState({
         homesData: myJson
-      })));
+      })))
+      .catch(err => console.log(err));
   }
 
   previousHouse() {
