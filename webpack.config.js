@@ -1,5 +1,7 @@
+const path = require('path');
+
 module.exports = {
-  entry: __dirname + '/client/index.jsx',
+  entry: path.join(__dirname, '/client/index.jsx'),
   module: {
     rules: [
       {
@@ -15,12 +17,12 @@ module.exports = {
       {
         test: /\.css/,
         loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]__[hash:base64:5]',  
-        include: __dirname +  '/client'
+        include: path.join(__dirname, '/client')
       }
     ]
   },
   output: {
     filename: 'bundle.js',
-    path: __dirname + '/client/dist'
+    path: path.join(__dirname, '/client/dist')
   }
 };
