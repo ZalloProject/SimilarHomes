@@ -1,5 +1,5 @@
-const app = require('./index');
+const app = require("./index");
 
-let port = process.env.PORT || 8081;
+const port = process.env.PORT || 8081;
 
 app.listen(port);
