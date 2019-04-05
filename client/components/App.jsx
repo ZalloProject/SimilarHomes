@@ -65,7 +65,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="similar-homes-container">
-        <h1 className={style.similarhomesheader}>Similar Homes For Sale</h1>
+        <h1 className={style.similarHomesHeader}>Similar Homes For Sale</h1>
         <div className={style.similarHomesCarousel}>
           <Arrow
             direction="left"
