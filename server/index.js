@@ -17,6 +17,12 @@ app.post("/similarHomes", (req, res) => {
   });
 });
 
+app.get("/homes", (req, res) => {
+  db.getAllHomes((err, data) => {
+    res.send(data);
+  });
+});
+
 app.post("/test", (req, res) => {
   testDB.getSimilarHomes(req.body, (err, data) => {
     res.send(data);

@@ -48,4 +48,11 @@ const getSimilarHomes = (home, cb) => {
   );
 };
 
+const getAllHomes = cb => {
+  SimilarHome.find({}, null, { sort: { price: 1 } }, (err, docs) => {
+    cb(null, docs);
+  });
+};
+
 module.exports.getSimilarHomes = getSimilarHomes;
+module.exports.getAllHomes = getAllHomes;
