@@ -57,10 +57,10 @@ const getHomes = cb => {
 const getHomesInArea = (minLat, maxLat, minLong, maxLong, cb) => {
   SimilarHome.find({
     $and: [
-      { lat: { $lte: maxLat } },
-      { lat: { $gte: minLat } },
-      { lng: { $lte: maxLong } },
-      { lng: { $gte: minLong } }
+      { lat: { $lte: Number(maxLat) } },
+      { lat: { $gte: Number(minLat) } },
+      { lng: { $lte: Number(minLong) } },
+      { lng: { $gte: Number(maxLong) } }
     ]
   })
     .limit(101)
