@@ -48,11 +48,25 @@ const getSimilarHomes = (home, cb) => {
   );
 };
 
-const getAllHomes = cb => {
-  SimilarHome.find({}, null, { sort: { price: 1 } }, (err, docs) => {
-    cb(null, docs);
-  });
+const getHomes = cb => {
+  SimilarHome.find({}, null, { sort: { price: 1 } })
+    .limit(101)
+    .exec((err, docs) => cb(null, docs));
 };
 
+const getHomesInArea = (minLat, maxLat, minLong, maxLong, cb) => {
+  SimilarHome.find({
+    $and: [
+      { lat: { $lte: maxLat } },
+      { lat: { $gte: minLat } },
+      { lng: { $lte: maxLong } },
+      { lng: { $gte: minLong } }
+    ]
+  })
+    .limit(101)
+    .exec((err, docs) => cb(null, docs));
+};
+
+module.exports.getHomesInArea = getHomesInArea;
 module.exports.getSimilarHomes = getSimilarHomes;
-module.exports.getAllHomes = getAllHomes;
+module.exports.getHomes = getHomes;
