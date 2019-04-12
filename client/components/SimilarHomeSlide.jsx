@@ -29,7 +29,7 @@ const createHomeSlide = (homes, index) => {
           }{" "}
           on Zallo
         </span>
-        <span>
+        <span className={style.simHomesHeartSpan}>
           <img
             className={style.simHomesHeart}
             src="https://s3-us-west-1.amazonaws.com/zallosimilarhomes/ZalloHeart.png"
