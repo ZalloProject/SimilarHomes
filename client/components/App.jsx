@@ -32,17 +32,19 @@ class App extends React.Component {
     };
     this.previousHouse = this.previousHouse.bind(this);
     this.nextHouse = this.nextHouse.bind(this);
+    this.saveHouse = this.saveHouse.bind(this);
   }
 
   componentDidMount() {
     this.props
       .getHomes(this.state.currentHome)
       .then(response => response.json())
-      .then(myJson =>
+      .then(myJson => {
+        myJson.forEach(home => Object.assign(home, { saved: false }));
         this.setState({
           homesData: myJson
-        })
-      )
+        });
+      })
       .catch(err => console.log(err));
   }
 
@@ -62,6 +64,14 @@ class App extends React.Component {
     }
   }
 
+  saveHouse(index) {
+    const { homesData } = this.state;
+    homesData[index].saved = !homesData[index].saved;
+    this.setState({
+      homesData
+    });
+  }
+
   render() {
     return (
       <div className="similar-homes-container">
@@ -73,11 +83,16 @@ class App extends React.Component {
             clickable={this.state.currentIndex > 0}
           />
           {this.state.homesData.length === 0 ? (
-            <SimilarHomeSlide homeData={[this.state.currentHome]} index={0} />
+            <SimilarHomeSlide
+              homes={[this.state.currentHome]}
+              index={0}
+              save={this.saveHouse}
+            />
           ) : (
             <SimilarHomeSlide
-              homeData={this.state.homesData}
+              homes={this.state.homesData}
               index={this.state.currentIndex}
+              save={this.saveHouse}
             />
           )}
           <Arrow

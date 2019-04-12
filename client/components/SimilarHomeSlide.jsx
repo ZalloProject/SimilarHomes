@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from "react";
 import moment from "moment";
 import style from "../style.css";
 
-const createHomeSlide = (homes, index) => {
+const createHomeSlide = (homes, index, save) => {
   const styles = {
     backgroundImage: `url(${homes[index].pictureURL})`,
     width: "312px",
@@ -17,6 +19,10 @@ const createHomeSlide = (homes, index) => {
     style: "currency",
     currency: "USD"
   });
+
+  const imgSrc = homes[index].saved
+    ? "https://s3-us-west-1.amazonaws.com/zallosimilarhomes/ZalloHeartSaved.png"
+    : "https://s3-us-west-1.amazonaws.com/zallosimilarhomes/ZalloHeart.png";
 
   return (
     <div className={style.similarHomeSlide} style={styles}>
@@ -32,8 +38,9 @@ const createHomeSlide = (homes, index) => {
         <span className={style.simHomesHeartSpan}>
           <img
             className={style.simHomesHeart}
-            src="https://s3-us-west-1.amazonaws.com/zallosimilarhomes/ZalloHeart.png"
+            src={imgSrc}
             alt="Similar Home"
+            onClick={save.bind(null, index)}
           />
         </span>
       </span>
@@ -69,14 +76,14 @@ const createHomeSlide = (homes, index) => {
   );
 };
 
-const SimilarHomeSlide = ({ homeData, index }) => {
-  if (homeData.length === 1) {
-    return createHomeSlide(homeData, 0);
+const SimilarHomeSlide = ({ homes, index, save }) => {
+  if (homes.length === 1) {
+    return createHomeSlide(homes, 0, save);
   }
   return (
     <div className={style.similarHomesSlidesContainer}>
-      {createHomeSlide(homeData, index)}
-      {createHomeSlide(homeData, index + 1)}
+      {createHomeSlide(homes, index, save)}
+      {createHomeSlide(homes, index + 1, save)}
     </div>
   );
 };
