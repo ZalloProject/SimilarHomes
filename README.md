@@ -4,15 +4,15 @@
 
 ## Related Projects
 
-  - https://github.com/ZalloProject/GenDesc-Service
-  - https://github.com/ZalloProject/Form-Service
-  - https://github.com/ZalloProject/GenDesc-Service
-  - https://github.com/ZalloProject/Luis-Proxy
+- https://github.com/ZalloProject/GenDesc-Service
+- https://github.com/ZalloProject/Form-Service
+- https://github.com/ZalloProject/GenDesc-Service
+- https://github.com/ZalloProject/Luis-Proxy
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-  Click on left and right arrows to view similar homes. Click on heart to "save" home.
+   Click on left and right arrows to view similar homes. Click on heart to "save" home.
 1. [Requirements](#requirements)
 1. [Development](#development)
 
