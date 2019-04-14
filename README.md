@@ -1,17 +1,18 @@
 # Project Name
 
-> Project description
+> Copy of Zillow's similar homes module.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/ZalloProject/GenDesc-Service
+  - https://github.com/ZalloProject/Form-Service
+  - https://github.com/ZalloProject/GenDesc-Service
+  - https://github.com/ZalloProject/Luis-Proxy
 
 ## Table of Contents
 
 1. [Usage](#Usage)
+  Click on left and right arrows to view similar homes. Click on heart to "save" home.
 1. [Requirements](#requirements)
 1. [Development](#development)
 
@@ -36,4 +37,3 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-
