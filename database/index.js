@@ -22,7 +22,12 @@ const similarHomesSchema = mongoose.Schema({
   size: Number,
   listingType: String,
   createdAt: { type: Date, required: true, default: Date.now },
-  pictureURL: String
+  pictureURL: String,
+  lat: Number,
+  lng: Number,
+  lotSize: Number,
+  yearBuilt: Number,
+  saves: Number
 });
 
 const SimilarHome = mongoose.model("SimilarHome", similarHomesSchema);
@@ -57,15 +62,36 @@ const getHomes = cb => {
 const getHomesInArea = (minLat, maxLat, minLong, maxLong, cb) => {
   SimilarHome.find({
     $and: [
-      { lat: { $lte: maxLat } },
-      { lat: { $gte: minLat } },
-      { lng: { $lte: maxLong } },
-      { lng: { $gte: minLong } }
+      { lat: { $lte: Number(maxLat) } },
+      { lat: { $gte: Number(minLat) } },
+      { lng: { $lte: Number(minLong) } },
+      { lng: { $gte: Number(maxLong) } }
     ]
   })
     .limit(101)
     .exec((err, docs) => cb(null, docs));
 };
+
+// Used to add/update details to database
+// const addDetails = () => {
+//   SimilarHome.find({}, (err, docs) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       for (const doc of docs) {
+//         SimilarHome.findOneAndUpdate(
+//           { _id: doc._id },
+//           { saves: Math.floor(250 * Math.random()) },
+//           (err, doc) => {
+//             console.log(err, doc);
+//           }
+//         );
+//       }
+//     }
+//   });
+// };
+
+// addDetails();
 
 module.exports.getHomesInArea = getHomesInArea;
 module.exports.getSimilarHomes = getSimilarHomes;

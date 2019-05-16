@@ -20,7 +20,7 @@ app.get("/homes", (req, res) => {
 });
 
 app.get("/homesByCoord/*", (req, res) => {
-  const coords = req.url.split("/")[1].split("&");
+  const coords = req.url.split("/")[2].split("&");
   db.getHomesInArea(coords[0], coords[1], coords[2], coords[3], (err, data) =>
     res.send(data)
   );

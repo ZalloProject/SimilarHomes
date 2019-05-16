@@ -55,6 +55,10 @@ const getHomes = () => {
   return new Promise((resolve, reject) => resolve([home1, home2, home3]));
 };
 
+const saved = () => {
+  return true;
+};
+
 describe("Main Similar Homes Component", () => {
   it('should be selectable by class "similar-homes-container"', () => {
     expect(
@@ -137,17 +141,17 @@ describe("Arrow Component", () => {
 describe("Slide Component", () => {
   it('should be selectable by class "similarHomeSslide"', () => {
     expect(
-      shallow(<SimilarHomeSlide homeData={[home1, home2]} index={0} />).is(
-        ".similarHomesSlidesContainer"
-      )
+      shallow(
+        <SimilarHomeSlide homes={[home1, home2]} index={0} save={saved} />
+      ).is(".similarHomesSlidesContainer")
     ).toBe(true);
   });
 
   it("should mount in a full DOM", () => {
     expect(
-      mount(<SimilarHomeSlide homeData={[home1, home2]} index={0} />).find(
-        ".similarHomeSlide"
-      ).length
+      mount(
+        <SimilarHomeSlide homes={[home1, home2]} index={0} save={saved} />
+      ).find(".similarHomeSlide").length
     ).toBe(2);
   });
 });
