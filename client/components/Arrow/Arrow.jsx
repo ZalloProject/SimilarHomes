@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
-import style from "../style.css";
+import style from "./style.css";
 
 const Arrow = ({ direction, clickFunction, clickable }) => {
   const src =
     direction === "left"
-      ? "https://s3-us-west-1.amazonaws.com/zallosimilarhomes/left-arrow.png"
-      : "https://s3-us-west-1.amazonaws.com/zallosimilarhomes/right-arrow.png";
+      ? "../assets/left-arrow.png"
+      : "../assets/right-arrow.png";
 
   const arrowClass = clickable ? "simHomesArrowOn" : "simHomesArrowOff";
 

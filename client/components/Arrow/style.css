@@ -1,0 +1,24 @@
+.simHomesSlideArrow {
+  font-size: 40px;
+  color: #ccc;
+  align-self: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.simHomesArrowImage {
+  width: 30px;
+  height: 30px;
+}
+
+.simHomesArrowOn {
+  opacity: 1;
+}
+
+.simHomesArrowOn:hover {
+  cursor: pointer;
+}
+
+.simHomesArrowOff {
+  opacity: 0.3;
+}
