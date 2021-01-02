@@ -1,7 +1,3 @@
-.similarHomesCarousel {
-  display: flex;
-}
-
 .similarHomesSlidesContainer {
   display: flex;
   color: #fff;
@@ -9,17 +5,11 @@
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
-.similarHomesHeader {
-  margin-left: 15px;
-  font-size: 20px;
-  line-height: 1.3;
-  font-weight: 600;
-  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
-}
-
 .simHomesHeartSpan {
-  margin: auto;
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: -20px;
+  justify-self: flex-start;
 }
 
 .simHomesHeart {
@@ -31,7 +21,7 @@
 .similarHomeSlide {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-left: 2px;
   margin-right: 2px;
 }
@@ -42,8 +32,11 @@
 
 .simHomesDays {
   display: flex;
-  margin: 10px 5px 60px 10px;
+  padding: 5px 10px;
   font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: fit-content;
+  color: white;
 }
 
 .simHomesLine2 {
@@ -57,8 +50,9 @@
   background-color: red;
   border-radius: 50%;
   display: inline-block;
-  margin-left: 10px;
-  margin-top: 2px;
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 5px
 }
 
 .simHomesListingType {
@@ -74,42 +68,35 @@
 .simHomesPrice {
   display: flex;
   margin-left: 10px;
-  font-size: 28px;
+  margin-top: -10px;
+  font-size: 24px;
 }
 
 .simHomesDetails {
   display: flex;
   margin-left: 10px;
-  margin-top: 12px;
+  margin-top: 3px;
   font-size: 16px;
 }
 
 .simHomesAddress {
   display: flex;
   margin-left: 10px;
+  margin-top: 5px;
   font-size: 14px;
   margin-bottom: 5px;
-  color: #e1e2e1;
 }
 
-.similarHomesSeeAll {
-  margin: 10px;
-  border: 1px solid transparent;
-  font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
-  border-color: #006aff;
-  color: #006aff;
-  border-radius: 5px;
-  text-align: center;
-  width: auto;
-  background-color: #fff;
-  padding: 0.4em 0.67em;
-  line-height: 1.5;
-  font-size: 15px;
-  margin-left: 285px;
+.simHomesTextArea {
+  background-color: white;
+  border-left: 1px solid rgba(240, 240, 240);
+  border-right: 1px solid rgba(240, 240, 240);
+  border-bottom: 4px solid #006AFF;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
-.similarHomesSeeAll:hover {
-  color: #fff;
-  background-color: #006aff;
-  cursor: pointer;
+.simHomesContainer {
+  height: 280px;
+
 }

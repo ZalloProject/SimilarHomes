@@ -5,8 +5,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
-import Arrow from "./Arrow.jsx";
-import SimilarHomeSlide from "./SimilarHomeSlide.jsx";
+import Arrow from "./Arrow/Arrow.jsx";
+import SimilarHomeSlide from "./SimilarHomeSlide/SimilarHomeSlide.jsx";
 import style from "../style.css";
 
 class App extends React.Component {
@@ -30,9 +30,6 @@ class App extends React.Component {
       },
       currentIndex: 0
     };
-    this.previousHouse = this.previousHouse.bind(this);
-    this.nextHouse = this.nextHouse.bind(this);
-    this.saveHouse = this.saveHouse.bind(this);
   }
 
   componentDidMount() {
@@ -48,7 +45,7 @@ class App extends React.Component {
       .catch(err => console.log(err));
   }
 
-  previousHouse() {
+  previousHouse = () => {
     if (this.state.currentIndex > 0) {
       this.setState({
         currentIndex: this.state.currentIndex - 1
@@ -56,7 +53,7 @@ class App extends React.Component {
     }
   }
 
-  nextHouse() {
+  nextHouse = () => {
     if (this.state.currentIndex < this.state.homesData.length - 2) {
       this.setState({
         currentIndex: this.state.currentIndex + 1
@@ -64,7 +61,7 @@ class App extends React.Component {
     }
   }
 
-  saveHouse(index) {
+  saveHouse = (index) => {
     const { homesData } = this.state;
     homesData[index].saved = !homesData[index].saved;
     this.setState({

@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from "react";
 import moment from "moment";
-import style from "../style.css";
+import style from "./style.css";
 
 const createHomeSlide = (homes, index, save) => {
   const styles = {
@@ -21,10 +21,11 @@ const createHomeSlide = (homes, index, save) => {
   });
 
   const imgSrc = homes[index].saved
-    ? "https://s3-us-west-1.amazonaws.com/zallosimilarhomes/ZalloHeartSaved.png"
-    : "https://s3-us-west-1.amazonaws.com/zallosimilarhomes/ZalloHeart.png";
+    ? "../assets/heartSaved.png"
+    : "../assets/heartUnsaved.png";
 
   return (
+    <div className={style.simHomesContainer}>
     <div className={style.similarHomeSlide} style={styles}>
       <span className={style.simHomesDays}>
         <span>
@@ -35,26 +36,27 @@ const createHomeSlide = (homes, index, save) => {
           }{" "}
           on Zallo
         </span>
-        <span className={style.simHomesHeartSpan}>
-          <img
-            className={style.simHomesHeart}
-            src={imgSrc}
-            alt="Similar Home"
-            onClick={save.bind(null, index)}
-          />
-        </span>
       </span>
+      <span className={style.simHomesHeartSpan}>
+        <img
+          className={style.simHomesHeart}
+          src={imgSrc}
+          alt="Similar Home"
+          onClick={save.bind(null, index)}
+        />
+      </span>
+    </div>
+    <div className={style.simHomesTextArea}>
       <span className={style.simHomesLine2}>
         <span className={style.simHomesDot} />
-        <span className={style.simHomesListingType}>
-          FOR {homes[index].listingType.toUpperCase()}
-        </span>
+        <span className={style.simHomesListingType} />
       </span>
       <span className={style.simHomesLine3}>
         <span className={style.simHomesPrice}>
           {formatter.format(homes[index].price).split(".00")[0]}
         </span>
-        <span className={style.simHomesDetails}>
+      </span>
+      <span className={style.simHomesDetails}>
           {homes[index].beds}
           {" bds ·"}
           {homes[index].baths}
@@ -62,9 +64,8 @@ const createHomeSlide = (homes, index, save) => {
           {homes[index].size.toLocaleString(undefined, {
             minimumFractionDigits: 0
           })}
-          {" ..."}
+          {` sqft - House for ${homes[index].listingType}`}
         </span>
-      </span>
       <span className={style.simHomesAddress}>
         {homes[index].address}
         {", "}
@@ -73,6 +74,7 @@ const createHomeSlide = (homes, index, save) => {
         {homes[index].state} {homes[index].zip}
       </span>
     </div>
+  </div>
   );
 };
 
