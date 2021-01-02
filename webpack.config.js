@@ -1,5 +1,6 @@
 const path = require("path");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const webpack = require('webpack');
 
 module.exports = {
   entry: path.join(__dirname, "/client/index.jsx"),
@@ -11,7 +12,8 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-react", "@babel/preset-env"]
+            presets: ["@babel/preset-react", "@babel/preset-env"],
+            plugins: ["@babel/plugin-proposal-class-properties"]
           }
         }
       },
@@ -27,5 +29,8 @@ module.exports = {
     filename: "bundle.js",
     path: path.join(__dirname, "/client/dist")
   },
-  plugins: [new BundleAnalyzerPlugin()]
+  plugins: [
+    new BundleAnalyzerPlugin(),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+  ]
 };
